@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aji Prakoso - Indonesian Software Engineer</title>
-    <!-- Link to SUSE font -->
     <link href="https://fonts.googleapis.com/css2?family=SUSE&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -18,14 +17,11 @@
             margin: 0;
             padding-bottom: 60px;
             scroll-behavior: smooth;
-            /* Smooth scrolling */
             background-color: #000;
-            /* Background color sama untuk semua section */
         }
 
         .full-screen {
             height: 100vh;
-            /* Full-screen height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -44,7 +40,6 @@
         #contact {
             padding: 50px 0;
             height: 100vh;
-            /* Full-screen height */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -64,7 +59,6 @@
 
         .container {
             padding-top: 60px;
-            /* Padding untuk menghindari navbar overlap */
         }
 
         .project-card {
@@ -77,9 +71,7 @@
             background-color: #333;
             margin: 20px 0;
             opacity: 0;
-            /* Hide initially */
             transition: opacity 0.5s ease-in-out;
-            /* Smooth transition */
         }
 
         .project-card img {
@@ -116,7 +108,6 @@
         </div>
     </nav>
 
-    <!-- Section Landing -->
     <div class="container text-center mt-5 full-screen">
         <div>
             <h1 id="greeting">Hello, my name is</h1>
@@ -126,14 +117,13 @@
         </div>
     </div>
 
-    <!-- Section "Projects" -->
     <div id="projects" class="container">
         <h2 class="text-center text-light mb-5">Projects</h2>
         <div class="row mx-3 mx-md-0">
 
             <div class="col-md-4 mb-4 mx-mb-0">
                 <div class="project-card h-100" data-animate="animate__slideInLeft">
-                    <img src="aiyo.png" alt="Project Image">
+                    <img src="images/aiyo.png" alt="Project Image">
                     <div class="card-body">
                         <h5 class="card-title">AiYO</h5>
                         <p class="card-text mt-3" id="project-01-description">AiYO is an application designed to
@@ -151,7 +141,7 @@
 
             <div class="col-md-4 mb-4 mx-mb-0">
                 <div class="project-card h-100" data-animate="animate__slideInUp">
-                    <img src="aiyo-mitra.png" alt="Project Image">
+                    <img src="images/aiyo-mitra.png" alt="Project Image">
                     <div class="card-body">
                         <h5 class="card-title">AiYO Mitra</h5>
                         <p class="card-text mt-3" id="project-02-description">AiYO Mitra is a solution application for
@@ -168,7 +158,7 @@
 
             <div class="col-md-4 mb-4 mx-mb-0">
                 <div class="project-card h-100" data-animate="animate__slideInRight">
-                    <img src="aiyo-pos.png" alt="Project Image">
+                    <img src="images/aiyo-pos.png" alt="Project Image">
                     <div class="card-body">
                         <h5 class="card-title">AiYO POS</h5>
                         <p class="card-text mt-3" id="project-03-description">AiYO POS is a Point of Sale application
@@ -191,7 +181,6 @@
 
     </div>
 
-    <!-- Section "Contact" -->
     <div id="contact" class="full-screen">
         <h2 id="contact-title">Contact</h2>
         <p id="contact-description">You can reach me at:</p>
@@ -226,7 +215,7 @@
             var currentLanguage = this.getAttribute('data-language');
 
             if (currentLanguage === 'en') {
-                // Ubah ke bahasa Indonesia
+                
                 document.getElementById('greeting').textContent = 'Halo, nama saya';
                 document.getElementById('projects-link').textContent = 'Karya';
                 document.getElementById('blog-link').textContent = 'Blog';
@@ -240,9 +229,8 @@
                 document.getElementById('contact-description').textContent = 'Hubungi saya di :';
 
                 this.setAttribute('data-language', 'id');
-                this.innerHTML = '🇮🇩';  // Ubah icon bendera
+                this.innerHTML = '🇮🇩'; 
             } else {
-                // Ubah ke bahasa Inggris
                 document.getElementById('greeting').textContent = 'Hello, my name is';
                 document.getElementById('projects-link').textContent = 'Projects';
                 document.getElementById('blog-link').textContent = 'Blog';
@@ -256,7 +244,7 @@
                 document.getElementById('contact-description').textContent = 'You can reach me at :';
 
                 this.setAttribute('data-language', 'en');
-                this.innerHTML = '🇬🇧';  // Ubah icon bendera
+                this.innerHTML = '🇬🇧'; 
             }
         });
     </script>
@@ -266,19 +254,19 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        console.log('Element is visible:', entry.target); // Debugging line
+                        console.log('Element is visible:', entry.target); 
                         const target = entry.target;
                         const animationClass = target.getAttribute('data-animate');
                         target.classList.remove('d-none');
                         target.classList.add('d-block', 'animate__animated', animationClass);
-                        target.style.opacity = 1; // Make element visible
+                        target.style.opacity = 1; 
                         observer.unobserve(target);
                     }
                 });
             }, { threshold: 0.1 });
 
             const projectCards = document.querySelectorAll('.project-card');
-            console.log('Project cards:', projectCards); // Debugging line
+            console.log('Project cards:', projectCards); 
             projectCards.forEach(card => observer.observe(card));
         });
     </script>
